@@ -7,7 +7,7 @@ on:
 
 
 jobs:
-  tests:
+  Tests:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout the source code
@@ -19,13 +19,32 @@ jobs:
         echo Add other actions to build,
         echo test, and deploy your project.
 
-  build:
-    needs: tests
+  Deploy:
+    needs: Tests
     runs-on: ubuntu-latest
     steps:
-    - name: Deploy to Heroku
-      uses: actions/heroku@1.0.0
+    - name: Login to Heroku
+      id: login
+      uses: actions/heroku@master
       with:
         args: "container:login"
       env:
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+    - name: Push to Heroku
+      id: push
+      needs: login
+      uses: actions/heroku@master
+      with:
+        args: "container:push -a \"$HEROKU_APP\""
+      env:
+        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        HEROKU_APP: tsds-streamlit-example
+    - name: Release to Heroku
+      id: release
+      needs: push
+      uses: actions/heroku@master
+      with:
+        args: "container:release -a \"$HEROKU_APP\""
+      env:
+        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        HEROKU_APP: tsds-streamlit-example
