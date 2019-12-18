@@ -25,6 +25,7 @@ jobs:
     steps:
     - name: Deploy to Heroku
       uses: actions/heroku@1.0.0
-      args: "container:login"
+      with:
+        args: "container:login"
       env:
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
