@@ -23,6 +23,8 @@ jobs:
     needs: Tests
     runs-on: ubuntu-latest
     steps:
+    - name: Checkout the source code
+      uses: actions/checkout@v1
     - name: Login to Heroku
       id: login
       uses: actions/heroku@master
