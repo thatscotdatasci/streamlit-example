@@ -1,1 +1,1 @@
-web: streamlit run tsds.py --server.port $PORT
+web: sh setup.sh && streamlit run tsds.py --server.port $PORT
