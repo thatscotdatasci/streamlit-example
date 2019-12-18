@@ -1,2 +1,2 @@
 #!/bin/sh
-docker-compose up --build
+PORT=8501 docker-compose up --build

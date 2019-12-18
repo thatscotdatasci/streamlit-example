@@ -1,2 +1,2 @@
 #!/bin/sh
-streamlit run tsds.py --server.port 8501
+streamlit run tsds.py --server.port "$PORT"
