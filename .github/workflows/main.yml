@@ -33,14 +33,14 @@ jobs:
     - name: Push to Heroku
       uses: actions/heroku@master
       with:
-        args: "container:push -a \"$HEROKU_APP\""
+        args: "container:push web -a \"$HEROKU_APP\""
       env:
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
         HEROKU_APP: tsds-streamlit-example
     - name: Release to Heroku
       uses: actions/heroku@master
       with:
-        args: "container:release -a \"$HEROKU_APP\""
+        args: "container:release web -a \"$HEROKU_APP\""
       env:
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
         HEROKU_APP: tsds-streamlit-example
