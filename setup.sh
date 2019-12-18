@@ -1,5 +1,5 @@
 #!/bin/sh
-mkdir -p /app/.streamlit/
+mkdir -p ~/.streamlit/
 
 echo "\
 [general]\n\
