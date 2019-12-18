@@ -31,8 +31,6 @@ jobs:
       env:
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
     - name: Push to Heroku
-      id: push
-      needs: login
       uses: actions/heroku@master
       with:
         args: "container:push -a \"$HEROKU_APP\""
@@ -40,8 +38,6 @@ jobs:
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
         HEROKU_APP: tsds-streamlit-example
     - name: Release to Heroku
-      id: release
-      needs: push
       uses: actions/heroku@master
       with:
         args: "container:release -a \"$HEROKU_APP\""
