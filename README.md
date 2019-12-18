@@ -1,5 +1,7 @@
 # Streamlit Example App
 
+![](https://github.com/thatscotdatasci/streamlit-example/workflows/Heroku%20Workflow/badge.svg)
+
 Very simple Streamlit example app to test functionality and CI/CD deployment.
 
 ## Local Execution
