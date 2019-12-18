@@ -12,12 +12,12 @@ jobs:
     steps:
     - name: Checkout the source code
       uses: actions/checkout@v1
-    - name: Run a one-line script
-      run: echo Hello, world!
-    - name: Run a multi-line script
-      run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
+    - name: Setup Python
+      uses: actions/setup-python@v1
+      with:
+        python-version: '3.7'
+    - name: Run unit tests
+      run: pytest tests
 
   Deploy:
     needs: Tests
