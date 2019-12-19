@@ -4,7 +4,7 @@ import streamlit as st
 
 
 class ContentManager:
-    def __init__(self, button_classes: set, default_button_class: 'AbstractButton'):
+    def __init__(self, button_classes: tuple, default_button_class: 'AbstractButton'):
         self._button_classes = button_classes
         self._default_button_class = default_button_class
 

@@ -1,9 +1,9 @@
-from app.abstract_classes.abstract_button import AbstractButton
+from app.abstract_classes.abstract_navigation_button import AbstractNavigationButton
 
 import streamlit as st
 
 
-class HomeButton(AbstractButton):
+class HomeButton(AbstractNavigationButton):
 
     name = "Home"
 
