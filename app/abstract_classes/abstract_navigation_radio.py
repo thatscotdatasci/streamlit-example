@@ -2,10 +2,10 @@ from abc import ABC
 
 import streamlit as st
 
-from app.abstract_classes.abstract_button import AbstractButton
+from app.abstract_classes.abstract_input_object import AbstractInputObject
 
 
-class AbstractNavigationButton(AbstractButton, ABC):
+class AbstractNavigationRadio(AbstractInputObject, ABC):
 
     def action(self):
         st.markdown("""

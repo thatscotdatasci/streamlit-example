@@ -1,9 +1,9 @@
 import streamlit as st
 
-from app.abstract_classes.abstract_navigation_button import AbstractNavigationButton
+from app.abstract_classes.abstract_navigation_radio import AbstractNavigationRadio
 
 
-class HerokuButton(AbstractNavigationButton):
+class HerokuRadio(AbstractNavigationRadio):
 
     name = "Heroku Hosting"
 

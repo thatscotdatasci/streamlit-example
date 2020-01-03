@@ -4,11 +4,11 @@ from io import BytesIO
 
 import streamlit as st
 
-from app.navigation_buttons.home_button import HomeButton
-from app.navigation_buttons.streamlit_button import StreamlitButton
-from app.navigation_buttons.heroku_button import HerokuButton
-from app.navigation_buttons.github_button import GitHubButton
-from app.content_manager.content_manager import ContentManager
+from app.navigation_radios.home_radio import HomeRadio
+from app.navigation_radios.streamlit_radio import StreamlitRadio
+from app.navigation_radios.heroku_radio import HerokuRadio
+from app.navigation_radios.github_radio import GitHubRadio
+from app.navigation_manager.navigation_manager import NavigationManager
 
 TSDS_ICON_URL = "https://raw.githubusercontent.com/thatscotdatasci/thatscotdatasci.github.io/master/assets/icons/tsds.ico"
 
@@ -19,10 +19,14 @@ tsds_icon = Image.open(BytesIO(tsds_icon_data.content))
 st.sidebar.image(tsds_icon)
 
 # App title in sidebar
-st.sidebar.markdown("# TSDS Streamlit Example")
+st.sidebar.markdown("""
+# TSDS Streamlit Example
 
-# Instantiate buttons
-buttons = (HomeButton, StreamlitButton, HerokuButton, GitHubButton)
+Simple example of Streamlit features, as well as how to run and deploy a Streamlit app to Heroku using GitHub
+""")
+
+# Instantiate navigation radio options
+navigation_radio_options = (HomeRadio, StreamlitRadio, HerokuRadio, GitHubRadio)
 
 # Content manager
-content_manager = ContentManager(buttons, HomeButton)
+content_manager = NavigationManager(navigation_radio_options, HomeRadio)
