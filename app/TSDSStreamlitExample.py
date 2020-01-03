@@ -5,7 +5,8 @@ from io import BytesIO
 import streamlit as st
 
 from app.navigation_radios.home_radio import HomeRadio
-from app.navigation_radios.streamlit_radio import StreamlitRadio
+from app.navigation_radios.streamlit_examples_radio import StreamlitExamplesRadio
+from app.navigation_radios.streamlit_operation_radio import StreamlitOperationRadio
 from app.navigation_radios.heroku_radio import HerokuRadio
 from app.navigation_radios.github_radio import GitHubRadio
 from app.navigation_manager.navigation_manager import NavigationManager
@@ -26,7 +27,7 @@ Simple example of Streamlit features, as well as how to run and deploy a Streaml
 """)
 
 # Instantiate navigation radio options
-navigation_radio_options = (HomeRadio, StreamlitRadio, HerokuRadio, GitHubRadio)
+navigation_radio_options = (HomeRadio, StreamlitExamplesRadio, StreamlitOperationRadio, HerokuRadio, GitHubRadio)
 
 # Content manager
 content_manager = NavigationManager(navigation_radio_options, HomeRadio)

@@ -7,20 +7,11 @@ import streamlit as st
 from app.abstract_classes.abstract_navigation_radio import AbstractNavigationRadio
 
 
-class StreamlitRadio(AbstractNavigationRadio):
+class StreamlitExamplesRadio(AbstractNavigationRadio):
 
-    name = "Running Streamlit"
+    name = "Streamlit Examples"
 
-    def action(self):
-        st.markdown("""
-        
-        Run Streamlit:
-        
-        ```
-        streamlit run <path_to_app>
-        ```
-        """)
-
+    def _action(self):
         st.markdown("""
                 ## Table
 

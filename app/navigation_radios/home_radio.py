@@ -6,8 +6,9 @@ from app.abstract_classes.abstract_navigation_radio import AbstractNavigationRad
 class HomeRadio(AbstractNavigationRadio):
 
     name = "Home"
+    _display_header = False
 
-    def action(self):
+    def _action(self):
         st.markdown("""
         # ThatScotDataSci Streamlit Example App
 

@@ -1,19 +1,22 @@
+import time
+
+import numpy as np
+import pandas as pd
 import streamlit as st
 
 from app.abstract_classes.abstract_navigation_radio import AbstractNavigationRadio
 
 
-class HerokuRadio(AbstractNavigationRadio):
+class StreamlitOperationRadio(AbstractNavigationRadio):
 
-    name = "Heroku Hosting"
+    name = "Streamlit Operation"
 
     def _action(self):
         st.markdown("""
         
-        Run Heroku web app locally:
+        Run Streamlit:
         
         ```
-        heroku local web
+        streamlit run <path_to_app>
         ```
         """)
-
