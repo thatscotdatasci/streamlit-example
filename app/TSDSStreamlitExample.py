@@ -31,7 +31,8 @@ st.sidebar.image(tsds_icon)
 st.sidebar.markdown("""
 # TSDS Streamlit Example
 
-Simple example of Streamlit features, as well as how to run and deploy a Streamlit app to Heroku using GitHub
+Simple example of Streamlit features, as well as how to run and deploy a [Streamlit](https://www.streamlit.io/) app to 
+[Heroku](https://www.heroku.com/) using [GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions).
 """)
 
 # Instantiate navigation radio options

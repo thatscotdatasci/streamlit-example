@@ -7,6 +7,7 @@ from app.abstract_classes.abstract_input_object import AbstractInputObject
 
 class AbstractNavigationRadio(AbstractInputObject, ABC):
 
+    name = "AbstractNavigationRadio"
     _display_header = True
 
     def action(self):

@@ -13,6 +13,14 @@ class StreamlitExamplesRadio(AbstractNavigationRadio):
 
     def _action(self):
         st.markdown("""
+        A few simple examples of what can be done in Streamlit. This is intended as a playground for experimentation, 
+        rather than a reference guide.
+        
+        Refer to the [Streamlit API documentation](https://docs.streamlit.io/en/stable/api.html).
+        """)
+
+
+        st.markdown("""
                 ## Table
 
                 A simple table of data

@@ -27,8 +27,8 @@ class HomeRadio(AbstractNavigationRadio):
         st.image(tsds_banner, use_column_width=True)
 
         st.markdown("""
-        This is a super simple, starter for 10 Streamlit app with the purpose of demoing functionality, and documenting 
-        how to run and deploy a Stremlit app to Heroku using GitHub.
+        This is a very simple, starter for 10 Streamlit app with the purpose of demonstrating functionality, and 
+        documenting how to run and deploy a Stremlit app to Heroku using GitHub.
         
         I've also been working on creating re-usable objects to aid with creating and organising multi-page Streamlit 
         apps in a clean manor.

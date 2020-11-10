@@ -1,6 +1,8 @@
-from app.abstract_classes.abstract_input_object import AbstractInputObject
+from typing import Type
 
 import streamlit as st
+
+from app.abstract_classes.abstract_input_object import AbstractInputObject
 
 
 class NavigationManager:
@@ -8,13 +10,14 @@ class NavigationManager:
     _radio = None
     _radio_dict = {}
 
-    def __init__(self, radio_classes: tuple, default_radio_class: 'AbstractInputObject'):
+    def __init__(self, radio_classes: tuple, default_radio_class: Type[AbstractInputObject]):
         self._radio_classes = radio_classes
         self._default_radio_class = default_radio_class
 
         self._radio_validation()
 
         self._display_navigation()
+        self._display_footer()
         self._display_content()
 
     @property
@@ -47,6 +50,13 @@ class NavigationManager:
     def _display_navigation(self):
         st.sidebar.markdown("## Navigation")
         self._instantiate_radio()
+
+    @staticmethod
+    def _display_footer():
+        st.sidebar.markdown("""
+            ---
+            Find out more about me, and my other projects, at [ThatScotDataSci](https://thatscotdatasci.com).
+            """)
 
     def _display_content(self):
         self._active_radio.action()
