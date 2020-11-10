@@ -13,10 +13,14 @@ class StreamlitExamplesRadio(AbstractNavigationRadio):
 
     def _action(self):
         st.markdown("""
-        A few simple examples of what can be done in Streamlit. This is intended as a playground for experimentation, 
-        rather than a reference guide.
+        A few very simple examples of what Streamlit can do. This is intended as a playground for experimentation, 
+        rather than as a reference guide - especially given how quickly the Streamlit team are adding new features. 
+        The [Streamlit API documentation](https://docs.streamlit.io/en/stable/api.html) provides a great level of detail
+        on what the product can do, and how to implement features.
         
-        Refer to the [Streamlit API documentation](https://docs.streamlit.io/en/stable/api.html).
+        As always tends to be the case, experimentation without a purpose is challenging. 
+        Please visit [my website](https://thatscotdatasci.com) for much more interesting examples, where I 
+        have used Streamlit as a tool to showcase data science/machine learning concepts and projects.
         """)
 
 

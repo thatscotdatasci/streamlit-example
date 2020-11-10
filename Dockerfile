@@ -1,20 +1,21 @@
+# Use an appropriate base image
 FROM python:3.8
 
-# Create dir for the app
+# Create the top level directory for the app
 WORKDIR /streamlit_app/
 
-# Install the requirements
+# Copy the requirements and setup file; install the requirements
 COPY requirements.txt setup.sh ./
 RUN pip install update && pip install -r requirements.txt
 
-# Add the required code
+# Add the app directory to the PYTHONPATH, and copy the app code to the current directory
 ENV PYTHONPATH=$PYTHONPATH:app/
 COPY app ./app/
 
-# Run the image as a non-root user - Heroku will not run as root
+# Run the image as a non-root user - Heroku will not allow the app to be run as root
 RUN useradd -m myuser
 USER myuser
 
 # Run the app - Heroku uses the CMD
-# Execute setup.sh at runtime - needs to have the correct port
+# The setup script is executed before the app is run
 CMD sh setup.sh && streamlit run app/TSDSStreamlitExample.py --server.port "$PORT"
