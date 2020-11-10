@@ -4,11 +4,11 @@ from io import BytesIO
 
 import streamlit as st
 
-from app.navigation_radios.home_radio import HomeRadio
-from app.navigation_radios.streamlit_examples_radio import StreamlitExamplesRadio
-from app.navigation_radios.streamlit_operation_radio import StreamlitOperationRadio
-from app.navigation_radios.heroku_radio import HerokuRadio
-from app.navigation_radios.github_radio import GitHubRadio
+from app.content.home_radio import HomeRadio
+from app.content.streamlit_examples_radio import StreamlitExamplesRadio
+from app.content.streamlit_operation_radio import StreamlitOperationRadio
+from app.content.heroku_radio import HerokuRadio
+from app.content.github_radio import GitHubRadio
 from app.navigation_manager.navigation_manager import NavigationManager
 
 TSDS_ICON_URL = "https://raw.githubusercontent.com/thatscotdatasci/thatscotdatasci.github.io/master/assets/icons/tsds.ico"
@@ -31,7 +31,7 @@ st.sidebar.image(tsds_icon)
 st.sidebar.markdown("""
 # TSDS Streamlit Example
 
-Simple example of Streamlit features, as well as how to run and deploy a [Streamlit](https://www.streamlit.io/) app to 
+Simple example of [Streamlit](https://www.streamlit.io/) features, as well as how to run and deploy a Streamlit app to 
 [Heroku](https://www.heroku.com/) using [GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions).
 """)
 
