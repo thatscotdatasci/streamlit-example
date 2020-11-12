@@ -35,7 +35,6 @@ jobs:
     - name: Checkout the source code
       uses: actions/checkout@v1
     - name: Push to Heroku
-      uses: actions/heroku@master
       run: |
         heroku container:push web -a "$HEROKU_APP"
     - name: Release to Heroku
