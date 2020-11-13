@@ -1,9 +1,8 @@
 import streamlit as st
 
 from app.abstract_classes.abstract_navigation_radio import AbstractNavigationRadio
-from app.content.utils import get_git_content
+from app.content.utils import get_git_content, RAW_GIT_URL
 
-RAW_GIT_URL = "https://raw.githubusercontent.com/thatscotdatasci/streamlit-example/master/"
 DOCKERFILE_URL = "".join((RAW_GIT_URL, "Dockerfile"))
 DOCKER_COMPOSE_URL = "".join((RAW_GIT_URL, "docker-compose.yml"))
 SETUP_SCRIPT_URL = "".join((RAW_GIT_URL, "setup.sh"))
