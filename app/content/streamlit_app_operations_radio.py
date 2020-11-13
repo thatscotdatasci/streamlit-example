@@ -1,8 +1,7 @@
-import os
-import requests
 import streamlit as st
 
 from app.abstract_classes.abstract_navigation_radio import AbstractNavigationRadio
+from app.content.utils import get_git_content
 
 RAW_GIT_URL = "https://raw.githubusercontent.com/thatscotdatasci/streamlit-example/master/"
 DOCKERFILE_URL = "".join((RAW_GIT_URL, "Dockerfile"))
@@ -11,27 +10,27 @@ SETUP_SCRIPT_URL = "".join((RAW_GIT_URL, "setup.sh"))
 LOCAL_SCRIPT_URL = "".join((RAW_GIT_URL, "local.sh"))
 
 
-class StreamlitOperationRadio(AbstractNavigationRadio):
+class StreamlitAppOperationsRadio(AbstractNavigationRadio):
 
-    name = "Streamlit Operation"
+    name = "Streamlit App Operations"
 
     def _action(self):
-        dockerfile_content = self._get_git_content(DOCKERFILE_URL)
-        docker_compose_content = self._get_git_content(DOCKER_COMPOSE_URL)
-        setup_script_content = self._get_git_content(SETUP_SCRIPT_URL)
-        local_script_content = self._get_git_content(LOCAL_SCRIPT_URL)
+        dockerfile_content = get_git_content(DOCKERFILE_URL)
+        docker_compose_content = get_git_content(DOCKER_COMPOSE_URL)
+        setup_script_content = get_git_content(SETUP_SCRIPT_URL)
+        local_script_content = get_git_content(LOCAL_SCRIPT_URL)
 
         st.markdown("""
         
         ## Running from the Command Line
         
-        Running Streamlit locally is as simple as executing the following shell command:
+        Running a Streamlit app locally is as simple as executing the following terminal command:
         
         ```
         streamlit run <path_to_app>
         ```
         
-        Streamlit monitors files for changes, so it's not necessary to restart it each time a modificaiton is made.
+        The Streamlit process monitors files for changes, so it's not necessary to restart it each time a modificaiton is made.
         
         Various arguments can be passed to the run command; the one I most commonly use is to change the port Streamlit 
         listens to connections on (the default is `8501`):
@@ -43,7 +42,7 @@ class StreamlitOperationRadio(AbstractNavigationRadio):
         ## Docker Containerisation
         
         To give my Streamlit apps portability (that is, the ability to be run on multiple different platforms - such as 
-        Heroku, AWS ECS, etc.) I have containerised them using Docker. By always running the apps locally using the same
+        Heroku, AWS ECS, etc.) I have containerised them using [Docker](https://www.docker.com/). By always running the apps locally using the same
         Docker image that will eventually be deployed, I can have confidence that the deployed app should work as
         expected.
         
@@ -103,11 +102,3 @@ class StreamlitOperationRadio(AbstractNavigationRadio):
         """)
 
         st.code(local_script_content, language="bash")
-
-    @staticmethod
-    def _get_git_content(url):
-        response = requests.get(url)
-        if response.status_code == 200:
-            return response.content.decode()
-        else:
-            return "Could not find the requested file!"

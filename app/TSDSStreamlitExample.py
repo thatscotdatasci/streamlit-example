@@ -6,7 +6,7 @@ import streamlit as st
 
 from app.content.home_radio import HomeRadio
 from app.content.streamlit_examples_radio import StreamlitExamplesRadio
-from app.content.streamlit_operation_radio import StreamlitOperationRadio
+from app.content.streamlit_app_operations_radio import StreamlitAppOperationsRadio
 from app.content.heroku_radio import HerokuRadio
 from app.content.github_radio import GitHubRadio
 from app.navigation_manager.navigation_manager import NavigationManager
@@ -36,7 +36,7 @@ Simple example of [Streamlit](https://www.streamlit.io/) features, as well as ho
 """)
 
 # Instantiate navigation radio options
-navigation_radio_options = (HomeRadio, StreamlitExamplesRadio, StreamlitOperationRadio, HerokuRadio, GitHubRadio)
+navigation_radio_options = (HomeRadio, StreamlitExamplesRadio, StreamlitAppOperationsRadio, HerokuRadio, GitHubRadio)
 
 # Content manager
 content_manager = NavigationManager(navigation_radio_options, HomeRadio)
